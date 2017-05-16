@@ -26,9 +26,6 @@ dependencies {
 
             // ORM
             'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:+',
-            'org.hibernate:hibernate-entitymanager:4.0.1.Final',
-            'org.hibernate:hibernate-core:4.0.1.Final',
-            'org.springframework:spring-orm:+',
 
             // Common
             'ch.qos.logback:logback-classic:+',

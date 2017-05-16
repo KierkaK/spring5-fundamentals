@@ -1,5 +1,4 @@
 import lab.model.Country;
-import lab.model.Person;
 import lab.model.UsualPerson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,23 +23,16 @@ class HelloWorldTest {
 
 	@Test
 	void testInitPerson() {
-		Person person = context.getBean("person", Person.class);
-		assertEquals(expectedPerson, person);
-		System.out.println(person);
+		assertEquals(expectedPerson, context.getBean("person"));
 	}
 
 	private UsualPerson getExpectedPerson() {
-		UsualPerson person = new UsualPerson();
-		person.setAge(35);
-		person.setName("John Smith");
-
-		Country country = new Country();
-		country.setId(1);
-		country.setName("Russia");
-		country.setCodeName("RU");
-
-		person.setCountry(country);
-
-		return person;
+		return new UsualPerson()
+                .setAge(35)
+                .setName("John Smith")
+                .setCountry(new Country()
+                        .setId(1)
+                        .setName("Russia")
+                        .setCodeName("RU"));
 	}
 }
