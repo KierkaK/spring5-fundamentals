@@ -27,12 +27,14 @@ class HelloWorldTest {
 	}
 
 	private UsualPerson getExpectedPerson() {
-		return new UsualPerson()
-                .setAge(35)
-                .setName("John Smith")
-                .setCountry(new Country()
-                        .setId(1)
-                        .setName("Russia")
-                        .setCodeName("RU"));
+		UsualPerson usualPerson = new UsualPerson();
+		usualPerson.setAge(35);
+		usualPerson.setName("John Smith");
+		Country country = new Country();
+		country.setId(1);
+		country.setName("Russia");
+		country.setCodeName("RU");
+		usualPerson.setCountry(country);
+		return usualPerson;
 	}
 }
