@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HelloWorldTest {
@@ -27,14 +29,13 @@ class HelloWorldTest {
 	}
 
 	private UsualPerson getExpectedPerson() {
-		UsualPerson usualPerson = new UsualPerson();
-		usualPerson.setAge(35);
-		usualPerson.setName("John Smith");
-		Country country = new Country();
-		country.setId(1);
-		country.setName("Russia");
-		country.setCodeName("RU");
-		usualPerson.setCountry(country);
-		return usualPerson;
+		return new UsualPerson(
+				0,
+				"John Smith",
+				new Country(1, "Russia","RU"),
+				35,
+				1.78F,
+				true,
+				Arrays.asList("asd@asd.ru", "+7-234-456-67-89"));
 	}
 }

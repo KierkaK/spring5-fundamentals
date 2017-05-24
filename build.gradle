@@ -27,6 +27,11 @@ dependencies {
             // ORM
             'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:+',
 
+            // AOP
+            'org.aspectj:aspectjrt:+',
+            'aopalliance:aopalliance:+',
+            'org.aspectj:aspectjweaver:+',
+
             // Common
             'ch.qos.logback:logback-classic:+',
             'io.javaslang:javaslang:+'
