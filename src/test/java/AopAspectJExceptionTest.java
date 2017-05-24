@@ -1,21 +1,21 @@
-import static org.junit.Assert.assertTrue;
 import lab.aop.AopLog;
 import lab.model.Bar;
 import lab.model.Customer;
 import lab.model.CustomerBrokenException;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration("classpath:application-context.xml")
-
-public class AopAspectJExceptionTest {
+class AopAspectJExceptionTest {
 
 	@Autowired
 	private Bar bar;
@@ -23,16 +23,16 @@ public class AopAspectJExceptionTest {
 	@Autowired
     private Customer customer;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeEach
+    void setUp() throws Exception {
         
 //        customer.setBroke(true);
     }
 
-    @Test(expected=CustomerBrokenException.class)
-    public void testAfterThrowingAdvice() {
+    @Test
+    void testAfterThrowingAdvice() {
  
-    	bar.sellSquishee(customer);
+    	assertThrows(CustomerBrokenException.class, () -> bar.sellSquishee(customer));
     	
         assertTrue("Customer is not broken ", AopLog.getStringValue().contains("Hmmm..."));
         System.out.println(AopLog.getStringValue());

@@ -1,4 +1,5 @@
 import lab.model.Country;
+import lab.model.Person;
 import lab.model.UsualPerson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ class SimpleAppTest {
 
     private AbstractApplicationContext context;
 
-    private UsualPerson expectedPerson;
+    private Person expectedPerson;
 
     @BeforeEach
     void setUp() throws Exception {
@@ -26,14 +27,14 @@ class SimpleAppTest {
 
     @Test
     void testInitPerson() {
-        UsualPerson person = (UsualPerson) context.getBean("person");
+        Person person = (UsualPerson) context.getBean("person");
 //		FYI: Another way to achieve the bean
 //		person = context.getBean(UsualPerson.class);
         assertEquals(expectedPerson, person);
         System.out.println(person);
     }
 
-    private UsualPerson getExpectedPerson() {
+    private Person getExpectedPerson() {
         return new UsualPerson(
                 0,
                 "John Smith",
