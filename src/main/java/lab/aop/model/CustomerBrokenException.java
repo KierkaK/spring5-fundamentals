@@ -1,4 +1,4 @@
-package lab.model;
+package lab.aop.model;
 
 
 public class CustomerBrokenException extends RuntimeException {

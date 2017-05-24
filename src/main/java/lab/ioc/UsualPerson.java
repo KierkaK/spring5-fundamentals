@@ -1,4 +1,4 @@
-package lab.model;
+package lab.ioc;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

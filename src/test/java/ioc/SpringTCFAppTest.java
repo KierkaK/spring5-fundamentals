@@ -1,5 +1,8 @@
-import lab.model.Country;
-import lab.model.UsualPerson;
+package ioc;
+
+import lab.ioc.Country;
+import lab.ioc.Person;
+import lab.ioc.UsualPerson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SpringTCFAppTest {
 
     @Autowired
-    private UsualPerson person;
+    private Person person;
 
     private UsualPerson expectedPerson;
 

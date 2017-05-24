@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--Country fields-->
+    <!--<bean id="id" class="java.lang.Integer" c:_0="1"/>-->
+    <!--<bean id="name" class="java.lang.String" c:_0="Russia"/>-->
+    <!--<bean id="codeName" class="java.lang.String" c:_0="RU"/>-->
+
+    <bean id="country" class="lab.ioc.Country"
+          c:id="1"
+          c:name="Russia"
+          c:codeName="RU"/>
+
+    <!--Person -->
+    <bean id="person" class="lab.ioc.UsualPerson"
+          c:id="0"
+          c:name="John Smith"
+          c:age="35"
+          c:height="1.78"
+          c:isProgrammer="true"
+          c:country-ref="country"
+          c:contacts-ref="contacts"/>
+
+    <util:list id="contacts" value-type="java.lang.String">
+        <value>asd@asd.ru</value>
+        <value>+7-234-456-67-89</value>
+    </util:list>
+
+</beans>

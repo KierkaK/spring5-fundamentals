@@ -1,11 +1,11 @@
 package lab.aop;
 
 
+import lab.aop.model.Squish;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import lab.model.Customer;
-import lab.model.Squishee;
+import lab.aop.model.Customer;
 
 @Aspect
 public class Politeness {
@@ -18,7 +18,7 @@ public class Politeness {
     @AfterReturning(pointcut = "execution(* sellSquishee(..))",
             returning = "retVal", argNames = "retVal")
     public void askOpinion(Object retVal) {
-        AopLog.append("Is " + ((Squishee) retVal).getName() + " Good Enough? \n");
+        AopLog.append("Is " + ((Squish) retVal).getName() + " Good Enough? \n");
     }
 
     public void sayYouAreNotAllowed() {

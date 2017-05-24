@@ -1,7 +1,9 @@
+package aop;
+
 import lab.aop.AopLog;
-import lab.model.Bar;
-import lab.model.Customer;
-import lab.model.CustomerBrokenException;
+import lab.aop.model.Bar;
+import lab.aop.model.Customer;
+import lab.aop.model.CustomerBrokenException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -32,7 +34,7 @@ class AopAspectJExceptionTest {
     @Test
     void testAfterThrowingAdvice() {
  
-    	assertThrows(CustomerBrokenException.class, () -> bar.sellSquishee(customer));
+    	assertThrows(CustomerBrokenException.class, () -> bar.sellSquish(customer));
     	
         assertTrue("Customer is not broken ", AopLog.getStringValue().contains("Hmmm..."));
         System.out.println(AopLog.getStringValue());

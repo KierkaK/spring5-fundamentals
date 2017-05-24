@@ -1,6 +1,8 @@
-import lab.model.Country;
-import lab.model.Person;
-import lab.model.UsualPerson;
+package ioc;
+
+import lab.ioc.Country;
+import lab.ioc.Person;
+import lab.ioc.UsualPerson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.AbstractApplicationContext;
