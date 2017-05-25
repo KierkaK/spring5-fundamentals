@@ -6,13 +6,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	 <!--<aop:aspectj-autoproxy/>-->
+	 <aop:aspectj-autoproxy/>
     <!--<context:annotation-config/>-->
     <!--<context:component-scan base-package="lab"/>-->
 
 	<import resource="ioc.xml"/>
 
-	<bean id="bar" class="lab.aop.model.ApuBar" />
+	<bean id="bar" class="lab.aop.model.ApuBar"/>
 
 	<bean id="customer" class="lab.aop.model.Customer"
 		  c:name="Homer"

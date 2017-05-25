@@ -2,5 +2,5 @@ package lab.aop.model;
 
 @FunctionalInterface
 public interface Bar {
-    Squish sellSquish(Customer customer);
+    Squishee sellSquishee(Customer customer);
 }

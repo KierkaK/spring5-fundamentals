@@ -6,12 +6,15 @@ import lab.aop.model.Bar;
 import lab.aop.model.Customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.springframework.test.util.AssertionErrors.assertTrue;
 
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration("classpath:application-context.xml")
 class AopAspectJTest {
 
@@ -23,14 +26,15 @@ class AopAspectJTest {
 
     @BeforeEach
     void setUp() throws Exception {
-    	
-        bar.sellSquish(customer);
+        bar.sellSquishee(customer);
     }
 
     @Test
     void testBeforeAdvice() {
-        assertTrue("Before advice is not good enought...", AopLog.getStringValue().contains("Hello"));
-        assertTrue("Before advice is not good enought...", AopLog.getStringValue().contains("How are you doing?"));
+        assertTrue("Before advice is not good enought...",
+                AopLog.getStringValue().contains("Hello"));
+        assertTrue("Before advice is not good enought...",
+                AopLog.getStringValue().contains("How are you doing?"));
         System.out.println(AopLog.getStringValue());
     }
 
@@ -48,8 +52,10 @@ class AopAspectJTest {
 
     @Test
     void testAroundAdvice() {
-        assertTrue("Around advice is not good enought...", AopLog.getStringValue().contains("Hi!"));
-        assertTrue("Around advice is not good enought...", AopLog.getStringValue().contains("See you!"));
+        assertTrue("Around advice is not good enought...",
+                AopLog.getStringValue().contains("Hi!"));
+        assertTrue("Around advice is not good enought...",
+                AopLog.getStringValue().contains("See you!"));
         System.out.println(AopLog.getStringValue());
     }
 

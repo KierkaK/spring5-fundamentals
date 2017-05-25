@@ -3,6 +3,6 @@ package lab.aop.model;
 import lombok.Value;
 
 @Value
-public class Squish {
+public class Squishee {
     private final String name;
 }

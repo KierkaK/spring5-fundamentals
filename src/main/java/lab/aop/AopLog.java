@@ -14,4 +14,8 @@ public class AopLog {
     public static void clear(){
         value = new StringBuffer();
     }
+
+    public static void appendf(String format, String... args) {
+        append(String.format(format, args));
+    }
 }
