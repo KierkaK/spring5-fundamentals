@@ -9,9 +9,9 @@ repositories {
     maven { url 'http://repo.spring.io/libs-milestone' }
     maven { url 'http://repo.spring.io/libs-release' }
     mavenCentral()
-    jcenter()
-    mavenLocal()
-    maven { url 'https://jitpack.io' }
+//    jcenter()
+//    mavenLocal()
+//    maven { url 'https://jitpack.io' }
 }
 
 configurations {
@@ -24,13 +24,17 @@ test.testLogging.showStandardStreams = true
 dependencies {
     compile 'org.springframework:spring-context:+',
 
-            // ORM
-            'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:+',
-
             // AOP
             'org.aspectj:aspectjrt:+',
             'aopalliance:aopalliance:+',
             'org.aspectj:aspectjweaver:+',
+
+            // JDBC
+            'com.h2database:h2:+',
+            'org.springframework:spring-jdbc:+',
+
+            // ORM
+            'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:+',
 
             // Common
             'ch.qos.logback:logback-classic:+',

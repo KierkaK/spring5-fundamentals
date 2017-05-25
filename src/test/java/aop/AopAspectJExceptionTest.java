@@ -27,8 +27,7 @@ class AopAspectJExceptionTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        
-//        customer.setBroke(true);
+        customer.setBroke(true);
     }
 
     @Test
@@ -38,5 +37,10 @@ class AopAspectJExceptionTest {
     	
         assertTrue("Customer is not broken ", AopLog.getStringValue().contains("Hmmm..."));
         System.out.println(AopLog.getStringValue());
+    }
+
+    @Test
+    void after() {
+        customer.setBroke(false);
     }
 }

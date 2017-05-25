@@ -20,6 +20,7 @@ public class Politeness {
         AopLog.appendf("Is %s Good Enough? \n", ((Squishee) retVal).getName());
     }
 
+    @AfterThrowing("execution(* sellSquishee(..))")
     public void sayYouAreNotAllowed() {
         AopLog.append("Hmmm... \n");
     }
@@ -29,6 +30,7 @@ public class Politeness {
         AopLog.append("Good Bye! \n");
     }
 
+    @Around("execution(* sellSquishee(..))")
     public Object sayPoliteWordsAndSell(ProceedingJoinPoint pjp) throws Throwable {
         AopLog.append("Hi! \n");
         Object retVal = pjp.proceed();
