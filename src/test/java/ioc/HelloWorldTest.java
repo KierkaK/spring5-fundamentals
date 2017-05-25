@@ -1,6 +1,6 @@
 package ioc;
 
-import lab.ioc.Country;
+import lab.SimpleCountry;
 import lab.ioc.UsualPerson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,7 +34,7 @@ class HelloWorldTest {
 		return new UsualPerson(
 				0,
 				"John Smith",
-				new Country(1, "Russia","RU"),
+				new SimpleCountry(1, "Russia","RU"),
 				35,
 				1.78F,
 				true,

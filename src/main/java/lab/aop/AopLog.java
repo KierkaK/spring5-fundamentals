@@ -15,7 +15,8 @@ public class AopLog {
         value = new StringBuffer();
     }
 
-    public static void appendf(String format, String... args) {
+    static void appendf(String format, String... args) {
+        //noinspection ConfusingArgumentToVarargsMethod
         append(String.format(format, args));
     }
 }
