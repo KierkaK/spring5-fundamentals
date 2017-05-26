@@ -1,8 +1,8 @@
 package jdbc;
 
-import lab.SimpleCountry;
-import lab.jdbc.dao.CountryDao;
 import lab.Country;
+import lab.SimpleCountry;
+import lab.jdbc.SimpleCountryDao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,7 +13,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -22,18 +25,17 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class JdbcTest{
 
 	@Autowired
-	private CountryDao countryDao;
+	private SimpleCountryDao countryDao;
 	
     private List<Country> expectedCountryList = new ArrayList<>();
     private List<Country> expectedCountryListStartsWithA = new ArrayList<>();
-    private Country countryWithChangedName = new SimpleCountry(1, "Russia", "RU");
+    private Country countryWithChangedName = new SimpleCountry(8, "Russia", "RU");
 
     @BeforeEach
     void setUp() throws Exception {
         initExpectedCountryLists();
         countryDao.loadCountries();
     }
-
     
     @Test
     @DirtiesContext
@@ -41,37 +43,31 @@ class JdbcTest{
         List<Country> countryList = countryDao.getCountryList();
         assertNotNull(countryList);
         assertEquals(expectedCountryList.size(), countryList.size());
-        for (int i = 0; i < expectedCountryList.size(); i++) {
-            assertEquals(expectedCountryList.get(i), countryList.get(i));
-        }
+        IntStream.range(0, expectedCountryList.size())
+                .forEach(i -> assertThat(countryList.get(i), is(expectedCountryList.get(i))));
     }
 
     @Test
     @DirtiesContext
     void testCountryListStartsWithA() {
-        List<Country> countryList = countryDao.getCountryListStartWith("A");
-        assertNotNull(countryList);
-        assertEquals(expectedCountryListStartsWithA.size(), countryList.size());
-        for (int i = 0; i < expectedCountryListStartsWithA.size(); i++) {
-            assertEquals(expectedCountryListStartsWithA.get(i), countryList.get(i));
-        }
+        assertThat(countryDao.getCountryListStartWith("A"), is(expectedCountryListStartsWithA));
     }
 
     @Test
     @DirtiesContext
     void testCountryChange() {
         countryDao.updateCountryName("RU", "Russia");
-        assertEquals(countryWithChangedName, countryDao.getCountryByCodeName("RU"));
+        assertThat(countryDao.getCountryByCodeName("RU"), is(countryWithChangedName));
     }
 
     private void initExpectedCountryLists() {
-         for (int i = 0; i < CountryDao.COUNTRY_INIT_DATA.length; i++) {
-             String[] countryInitData = CountryDao.COUNTRY_INIT_DATA[i];
-             Country country = new SimpleCountry(i, countryInitData[0], countryInitData[1]);
-             expectedCountryList.add(country);
-             if (country.getName().startsWith("A")) {
-                 expectedCountryListStartsWithA.add(country);
-             }
-         }
+        IntStream.range(0, SimpleCountryDao.COUNTRY_INIT_DATA.length)
+                .mapToObj(i -> {
+                    String[] countryInitData = SimpleCountryDao.COUNTRY_INIT_DATA[i];
+                    return new SimpleCountry(i + 1, countryInitData[0], countryInitData[1]);
+                })
+                .peek(expectedCountryList::add)
+                .filter(country -> country.getName().startsWith("A"))
+                .forEach(expectedCountryListStartsWithA::add);
      }
 }

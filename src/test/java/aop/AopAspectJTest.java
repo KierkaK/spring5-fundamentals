@@ -5,6 +5,7 @@ import lab.aop.model.ApuBar;
 import lab.aop.model.Bar;
 import lab.aop.model.Customer;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,36 +32,34 @@ class AopAspectJTest {
 
     @Test
     void testBeforeAdvice() {
-        assertTrue("Before advice is not good enought...",
+        assertTrue("Before advice is not good enough...",
                 AopLog.getStringValue().contains("Hello"));
-        assertTrue("Before advice is not good enought...",
+        assertTrue("Before advice is not good enough...",
                 AopLog.getStringValue().contains("How are you doing?"));
-        System.out.println(AopLog.getStringValue());
     }
 
     @Test
     void testAfterAdvice() {
-        System.out.println(AopLog.getStringValue());
-        assertTrue("After advice is not good enought...", AopLog.getStringValue().contains("Good Bye!"));
+        assertTrue("After advice is not good enough...",
+                AopLog.getStringValue().contains("Good Bye!"));
     }
 
     @Test
     void testAfterReturningAdvice() {
-        assertTrue("Customer is broken", AopLog.getStringValue().contains("Good Enough?"));
-        System.out.println(AopLog.getStringValue());
+        assertTrue("Customer is broken",
+                AopLog.getStringValue().contains("Good Enough?"));
     }
 
     @Test
     void testAroundAdvice() {
-        assertTrue("Around advice is not good enought...",
+        assertTrue("Around advice is not good enough...",
                 AopLog.getStringValue().contains("Hi!"));
-        assertTrue("Around advice is not good enought...",
+        assertTrue("Around advice is not good enough...",
                 AopLog.getStringValue().contains("See you!"));
-        System.out.println(AopLog.getStringValue());
     }
 
     @Test
-    // barObject instanceof ApuBar
+    @DisplayName("barObject instanceof ApuBar")
     void testAllAdvices() {
         assertFalse(bar instanceof ApuBar);
     }

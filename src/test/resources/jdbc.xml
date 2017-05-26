@@ -10,7 +10,7 @@
         <jdbc:script location="classpath:db-schema.sql"/>
     </jdbc:embedded-database>
 
-    <bean id="countryDao" class="lab.jdbc.dao.CountryDao"
+    <bean id="countryDao" class="lab.jdbc.SimpleCountryDao"
           p:dataSource-ref="dataSource"/>
 
 </beans>

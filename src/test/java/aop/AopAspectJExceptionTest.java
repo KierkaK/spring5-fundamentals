@@ -32,11 +32,8 @@ class AopAspectJExceptionTest {
 
     @Test
     void testAfterThrowingAdvice() {
- 
     	assertThrows(CustomerBrokenException.class, () -> bar.sellSquishee(customer));
-    	
         assertTrue("Customer is not broken ", AopLog.getStringValue().contains("Hmmm..."));
-        System.out.println(AopLog.getStringValue());
     }
 
     @Test
