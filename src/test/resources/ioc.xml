@@ -9,13 +9,13 @@
     <!--<bean id="name" class="java.lang.String" c:_0="Russia"/>-->
     <!--<bean id="codeName" class="java.lang.String" c:_0="RU"/>-->
 
-    <bean id="country" class="lab.SimpleCountry"
+    <bean id="country" class="lab.model.simple.SimpleCountry"
           c:id="1"
           c:name="Russia"
           c:codeName="RU"/>
 
     <!--Person -->
-    <bean id="person" class="lab.ioc.UsualPerson"
+    <bean id="person" class="lab.model.simple.SimplePerson"
           c:id="0"
           c:name="John Smith"
           c:age="35"

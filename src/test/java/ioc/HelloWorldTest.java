@@ -1,7 +1,7 @@
 package ioc;
 
-import lab.SimpleCountry;
-import lab.ioc.UsualPerson;
+import lab.model.simple.SimpleCountry;
+import lab.model.simple.SimplePerson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.BeanFactory;
@@ -15,7 +15,7 @@ class HelloWorldTest {
 
 	private static final String APPLICATION_CONTEXT_XML_FILE_NAME = "application-context.xml";
 
-	private UsualPerson expectedPerson;
+	private SimplePerson expectedPerson;
 
 	private BeanFactory context;
 
@@ -30,8 +30,8 @@ class HelloWorldTest {
 		assertEquals(expectedPerson, context.getBean("person"));
 	}
 
-	private UsualPerson getExpectedPerson() {
-		return new UsualPerson(
+	private SimplePerson getExpectedPerson() {
+		return new SimplePerson(
 				0,
 				"John Smith",
 				new SimpleCountry(1, "Russia","RU"),

@@ -1,8 +1,8 @@
 package ioc;
 
-import lab.SimpleCountry;
-import lab.ioc.Person;
-import lab.ioc.UsualPerson;
+import lab.model.simple.SimpleCountry;
+import lab.model.Person;
+import lab.model.simple.SimplePerson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -29,15 +29,15 @@ class SimpleAppTest {
 
     @Test
     void testInitPerson() {
-        Person person = (UsualPerson) context.getBean("person");
+        Person person = (SimplePerson) context.getBean("person");
 //		FYI: Another way to achieve the bean
-//		person = context.getBean(UsualPerson.class);
+//		person = context.getBean(SimplePerson.class);
         assertEquals(expectedPerson, person);
         System.out.println(person);
     }
 
     private Person getExpectedPerson() {
-        return new UsualPerson(
+        return new SimplePerson(
                 0,
                 "John Smith",
                 new SimpleCountry(1, "Russia","RU"),

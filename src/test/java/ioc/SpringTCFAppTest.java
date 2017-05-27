@@ -1,8 +1,8 @@
 package ioc;
 
-import lab.SimpleCountry;
-import lab.ioc.Person;
-import lab.ioc.UsualPerson;
+import lab.model.simple.SimpleCountry;
+import lab.model.Person;
+import lab.model.simple.SimplePerson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,7 +21,7 @@ class SpringTCFAppTest {
     @Autowired
     private Person person;
 
-    private UsualPerson expectedPerson;
+    private SimplePerson expectedPerson;
 
 
     @BeforeEach
@@ -35,8 +35,8 @@ class SpringTCFAppTest {
         System.out.println(person);
     }
 
-    private UsualPerson getExpectedPerson() {
-        return new UsualPerson(
+    private SimplePerson getExpectedPerson() {
+        return new SimplePerson(
                 0,
                 "John Smith",
                 new SimpleCountry(1, "Russia","RU"),

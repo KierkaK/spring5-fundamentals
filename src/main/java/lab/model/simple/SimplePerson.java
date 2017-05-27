@@ -1,19 +1,18 @@
-package lab.ioc;
+package lab.model.simple;
 
-import lab.Country;
+import lab.model.Country;
+import lab.model.Person;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.experimental.Accessors;
+import lombok.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Accessors(chain = true)
 @Entity
-@Data
+@Value
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-public class UsualPerson implements Person {
+public class SimplePerson implements Person {
     @Id
     @Column
     private int id;
@@ -31,6 +30,7 @@ public class UsualPerson implements Person {
 
     private List<String> contacts;
 
+    @Override
     public void sayHello(Person person) {
         System.out.printf("Hello, %s! I`m %s.%n", person.getName(), getName());
     }

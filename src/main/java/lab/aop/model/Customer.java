@@ -1,6 +1,6 @@
 package lab.aop.model;
 
-import lab.ioc.Person;
+import lab.model.Person;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.experimental.Accessors;

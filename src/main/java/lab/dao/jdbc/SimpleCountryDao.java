@@ -1,6 +1,6 @@
-package lab.jdbc;
+package lab.dao.jdbc;
 
-import lab.Country;
+import lab.model.Country;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
 
@@ -13,8 +13,10 @@ public class SimpleCountryDao extends NamedParameterJdbcDaoSupport implements Co
 
     @Override
     public List<Country> getCountryList() {
-        // TODO: implement it
-        return null;
+        return getJdbcTemplate().query(
+                GET_ALL_COUNTRIES_SQL,
+                COUNTRY_ROW_MAPPER
+        );
     }
 
     @Override
@@ -28,7 +30,13 @@ public class SimpleCountryDao extends NamedParameterJdbcDaoSupport implements Co
 
     @Override
     public void updateCountryName(String codeName, String newCountryName) {
-        // TODO: implement it
+        getJdbcTemplate().update(
+                String.format(
+                        UPDATE_COUNTRY_NAME_SQL,
+                        newCountryName,
+                        codeName
+                )
+        );
     }
 
     @Override

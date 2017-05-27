@@ -1,5 +1,6 @@
-package lab;
+package lab.model.simple;
 
+import lab.model.Country;
 import lombok.AllArgsConstructor;
 import lombok.Value;
 import org.springframework.beans.factory.annotation.Autowired;

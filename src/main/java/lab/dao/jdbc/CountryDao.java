@@ -1,7 +1,7 @@
-package lab.jdbc;
+package lab.dao.jdbc;
 
-import lab.Country;
-import lab.SimpleCountry;
+import lab.model.Country;
+import lab.model.simple.SimpleCountry;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.jdbc.core.RowMapper;
 
