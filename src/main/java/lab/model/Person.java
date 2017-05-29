@@ -1,8 +1,10 @@
 package lab.model;
 
+import java.util.List;
+
 public interface Person {
 
-    String getId();
+    int getId();
 
     String getName();
 
@@ -16,5 +18,5 @@ public interface Person {
 
     boolean isProgrammer();
 
-    java.util.List<String> getContacts();
+    List<String> getContacts();
 }

@@ -18,18 +18,18 @@ public interface CountryDao extends InitializingBean {
     String DROP_COUNTRY_TABLE_SQL = "DROP TABLE country";
 
     String[][] COUNTRY_INIT_DATA = {
-            {"Australia", "AU"},
-            {"Canada", "CA"},
-            {"France", "FR"},
-            {"Hong Kong", "HK"},
-            {"Iceland", "IC"},
-            {"Japan", "JP"},
-            {"Nepal", "NP"},
-            {"Russian Federation", "RU"},
-            {"Sweden", "SE"},
-            {"Switzerland", "CH"},
-            {"United Kingdom", "GB"},
-            {"United States", "US"}
+            {"Australia", "AU"}, //0
+            {"Canada", "CA"}, //1
+            {"France", "FR"}, //2
+            {"Hong Kong", "HK"}, //3
+            {"Iceland", "IC"}, //4
+            {"Japan", "JP"},//5
+            {"Nepal", "NP"},//6
+            {"Russian Federation", "RU"},//7
+            {"Sweden", "SE"},//8
+            {"Switzerland", "CH"},//9
+            {"United Kingdom", "GB"},//10
+            {"United States", "US"}//11
     };
 
     RowMapper<Country> COUNTRY_ROW_MAPPER = (rs, rowNum) ->
