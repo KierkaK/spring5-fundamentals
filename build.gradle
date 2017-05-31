@@ -35,10 +35,14 @@ dependencies {
 
             // ORM
             'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:+',
+            'org.hibernate:hibernate-entitymanager:4.0.1.Final',
+            'org.hibernate:hibernate-core:4.0.1.Final',
+            'org.springframework:spring-orm:+',
+            'javax.transaction:jta:+',
 
             // Common
             'ch.qos.logback:logback-classic:+',
-            'io.javaslang:javaslang:+'
+            'io.vavr:vavr:+'
 
     compileOnly 'org.projectlombok:lombok:+',
             'edu.washington.cs.types.checker:checker-framework:+'
