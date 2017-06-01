@@ -26,19 +26,16 @@ dependencies {
 
             // AOP
             'org.aspectj:aspectjrt:+',
-            'aopalliance:aopalliance:+',
             'org.aspectj:aspectjweaver:+',
+            'aopalliance:aopalliance:+',
 
             // JDBC
             'com.h2database:h2:+',
             'org.springframework:spring-jdbc:+',
 
             // ORM
-            'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:+',
-            'org.hibernate:hibernate-entitymanager:4.0.1.Final',
-            'org.hibernate:hibernate-core:4.0.1.Final',
+            'org.hibernate:hibernate-spatial:+',
             'org.springframework:spring-orm:+',
-            'javax.transaction:jta:+',
 
             // Common
             'ch.qos.logback:logback-classic:+',

@@ -15,7 +15,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration("classpath:application-context.xml")
+@ContextConfiguration("classpath:ioc.xml")
 class SpringTCFAppTest {
 
     @Autowired

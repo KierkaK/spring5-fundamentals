@@ -4,6 +4,7 @@ import lab.aop.AopLog;
 import lab.aop.model.Bar;
 import lab.aop.model.Customer;
 import lab.aop.model.CustomerBrokenException;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,7 +17,7 @@ import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration("classpath:application-context.xml")
+@ContextConfiguration("classpath:aop.xml")
 class AopAspectJExceptionTest {
 
 	@Autowired
@@ -36,7 +37,7 @@ class AopAspectJExceptionTest {
         assertTrue("Customer is not broken ", AopLog.getStringValue().contains("Hmmm..."));
     }
 
-    @Test
+    @AfterEach
     void after() {
         customer.setBroke(false);
     }

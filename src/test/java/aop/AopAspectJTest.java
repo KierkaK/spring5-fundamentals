@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration("classpath:application-context.xml")
+@ContextConfiguration("classpath:aop.xml")
 class AopAspectJTest {
 
 	@Autowired
@@ -34,6 +34,7 @@ class AopAspectJTest {
     void testBeforeAdvice() {
         assertTrue("Before advice is not good enough...",
                 AopLog.getStringValue().contains("Hello"));
+
         assertTrue("Before advice is not good enough...",
                 AopLog.getStringValue().contains("How are you doing?"));
     }

@@ -2,19 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
        xmlns:util="http://www.springframework.org/schema/util"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!--Country fields-->
-    <!--<bean id="id" class="java.lang.Integer" c:_0="1"/>-->
-    <!--<bean id="name" class="java.lang.String" c:_0="Russia"/>-->
-    <!--<bean id="codeName" class="java.lang.String" c:_0="RU"/>-->
+    <import resource="application-context.xml"/>
 
     <bean id="country" class="lab.model.simple.SimpleCountry"
           c:id="1"
           c:name="Russia"
           c:codeName="RU"/>
 
-    <!--Person -->
     <bean id="person" class="lab.model.simple.SimplePerson"
           c:id="0"
           c:name="John Smith"

@@ -2,6 +2,8 @@ package orm;
 
 import lab.dao.CountryDao;
 import lab.model.Country;
+import lab.model.simple.SimpleCountry;
+import lombok.extern.java.Log;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +21,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Illustrates basic use of Hibernate as a JPA provider.
  */
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration("classpath:application-context.xml")
+@ContextConfiguration("classpath:orm.xml")
+@Log
 class CountryDaoImplTest {
 
-//	private static Log log = LogFactory.getLog(orm.CountryDaoImplTest.class);
-
-	private Country exampleCountry = new Country("Australia", "AU");
+	private Country exampleCountry = new SimpleCountry( "Australia", "AU");
 
 	@Autowired
 	private CountryDao countryDao;
@@ -42,7 +43,7 @@ class CountryDaoImplTest {
 	@Test
 	void testGtAllCountries() {
 
-		countryDao.save(new Country("Canada", "CA"));
+		countryDao.save(new SimpleCountry("Canada", "CA"));
 
 		List<Country> countryList = countryDao.getAllCountries();
 		assertEquals(2, countryList.size());
