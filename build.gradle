@@ -38,7 +38,7 @@ dependencies {
             'org.springframework:spring-orm:+',
 
             // Common
-            'ch.qos.logback:logback-classic:+',
+//            'ch.qos.logback:logback-classic:+',
             'io.vavr:vavr:+'
 
     compileOnly 'org.projectlombok:lombok:+',

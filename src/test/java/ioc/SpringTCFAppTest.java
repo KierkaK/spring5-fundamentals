@@ -43,7 +43,8 @@ class SpringTCFAppTest {
                 35,
                 1.78F,
                 true,
-                Arrays.asList("asd@asd.ru", "+7-234-456-67-89"));
+                Arrays.asList("asd@asd.ru", "+7-234-456-67-89"),
+                false);
     }
 
 }

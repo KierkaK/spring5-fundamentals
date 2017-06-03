@@ -2,6 +2,7 @@ package lab.dao.jpa;
 
 import lab.dao.CountryDao;
 import lab.model.Country;
+import lab.model.MutableCountry;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,9 +11,9 @@ import java.util.List;
 public class CountryJpaDaoImpl extends AbstractJpaDao implements CountryDao {
 
     @Override
-    public void save(Country country) {
+    public void save(MutableCountry mutableCountry) {
         withEntityManagerInTransaction(entityManager ->
-                entityManager.persist(country)
+                entityManager.persist(mutableCountry)
         );
     }
 

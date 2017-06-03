@@ -1,5 +1,6 @@
 package lab.dao.jdbc;
 
+import lab.dao.CountryDao;
 import lab.model.Country;
 import lab.model.simple.SimpleCountry;
 import org.springframework.beans.factory.InitializingBean;
@@ -7,13 +8,13 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.util.List;
 
-public interface CountryDao extends InitializingBean {
-    String LOAD_COUNTRIES_SQL = "INSERT INTO country (name, code_name) VALUES ('%s', '%s')";
+public interface CountryJdbcDao extends CountryDao, InitializingBean {
+    String LOAD_COUNTRIES_SQL = "INSERT INTO country (name, code_name) VALUES (?, ?)";
     String GET_ALL_COUNTRIES_SQL = "SELECT id, name, code_name FROM country";
     String GET_COUNTRIES_BY_NAME_SQL = "SELECT id, name, code_name FROM country WHERE name LIKE :name";
-    String GET_COUNTRY_BY_NAME_SQL = "SELECT id, name, code_name FROM country WHERE name = '%s'";
-    String GET_COUNTRY_BY_CODE_NAME_SQL = "SELECT id, name, code_name FROM country WHERE code_name = '%s'";
-    String UPDATE_COUNTRY_NAME_SQL = "UPDATE country SET name='%s' WHERE code_name='%s'";
+    String GET_COUNTRY_BY_NAME_SQL = "SELECT id, name, code_name FROM country WHERE name = ?";
+    String GET_COUNTRY_BY_CODE_NAME_SQL = "SELECT id, name, code_name FROM country WHERE code_name = ?";
+    String UPDATE_COUNTRY_NAME_SQL = "UPDATE country SET name=? WHERE code_name=?";
     String CREATE_COUNTRY_TABLE_SQL = "CREATE TABLE country(id IDENTITY, name VARCHAR (255), code_name VARCHAR (255))";
     String DROP_COUNTRY_TABLE_SQL = "DROP TABLE country";
 
@@ -38,8 +39,6 @@ public interface CountryDao extends InitializingBean {
                     rs.getString("name"),
                     rs.getString("code_name"));
 
-    List<Country> getCountryList();
-
     List<Country> getCountryListStartWith(String name);
 
     void updateCountryName(String codeName, String newCountryName);
@@ -47,6 +46,4 @@ public interface CountryDao extends InitializingBean {
     void loadCountries();
 
     Country getCountryByCodeName(String codeName);
-
-    Country getCountryByName(String name) throws CountryNotFoundException;
 }

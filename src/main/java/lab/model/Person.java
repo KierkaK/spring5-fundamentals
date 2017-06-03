@@ -4,11 +4,11 @@ import java.util.List;
 
 public interface Person {
 
+    void sayHello(Person person);
+
     int getId();
 
     String getName();
-
-    void sayHello(Person person);
 
     Country getCountry();
 
@@ -19,4 +19,6 @@ public interface Person {
     boolean isProgrammer();
 
     List<String> getContacts();
+
+    boolean isBroke();
 }

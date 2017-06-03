@@ -1,9 +1,9 @@
 package aop;
 
 import lab.aop.AopLog;
-import lab.aop.model.ApuBar;
-import lab.aop.model.Bar;
-import lab.aop.model.Customer;
+import lab.model.simple.ApuBar;
+import lab.model.Bar;
+import lab.model.Person;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,11 +23,11 @@ class AopAspectJTest {
     private Bar bar;
     
 	@Autowired
-    private Customer customer;
+    private Person person;
 
     @BeforeEach
     void setUp() throws Exception {
-        bar.sellSquishee(customer);
+        bar.sellSquishee(person);
     }
 
     @Test

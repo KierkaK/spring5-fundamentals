@@ -15,20 +15,20 @@
     <context:component-scan base-package="lab.aop"/>
     <import resource="application-context.xml"/>
 
-    <bean id="bar" class="lab.aop.model.ApuBar"/>
+    <bean id="bar" class="lab.model.simple.ApuBar"/>
     <bean class="lab.aop.Politeness"/>
 
-    <bean id="customer" class="lab.aop.model.Customer"
+    <bean id="customer" class="lab.model.simple.SimplePerson"
           c:name="Homer"
-          c:broke="false"
           c:id="0"
           c:age="35"
           c:height="1.78"
+          c:broke="false"
           c:isProgrammer="true"
-          c:country-ref="country"
+          c:country-ref="mutableCountry"
           c:contacts-ref="contacts"/>
 
-    <bean id="country" class="lab.model.simple.SimpleCountry"
+    <bean id="mutableCountry" class="lab.model.simple.SimpleCountry"
           c:id="1"
           c:name="Russia"
           c:codeName="RU"/>

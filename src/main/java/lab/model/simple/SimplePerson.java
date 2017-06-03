@@ -1,19 +1,22 @@
 package lab.model.simple;
 
 import lab.model.Country;
+import lab.model.MutablePerson;
 import lab.model.Person;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.experimental.Accessors;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 //@Entity
 //@Table(name = "person")
+@Accessors(chain = true)
 @Data
 //@NoArgsConstructor
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-public class SimplePerson implements Person {
+public class SimplePerson implements MutablePerson {
 //    @Id
 //    @Column
     private int id;
@@ -36,6 +39,8 @@ public class SimplePerson implements Person {
 
 //    @Column
     private List<String> contacts;
+
+    private boolean broke;
 
     @Override
     public void sayHello(Person person) {

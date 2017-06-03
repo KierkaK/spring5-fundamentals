@@ -8,7 +8,7 @@
 
     <import resource="application-context.xml"/>
 
-    <bean id="country" class="lab.model.simple.SimpleCountry"
+    <bean id="mutableCountry" class="lab.model.simple.SimpleCountry"
           c:id="1"
           c:name="Russia"
           c:codeName="RU"/>
@@ -19,8 +19,9 @@
           c:age="35"
           c:height="1.78"
           c:isProgrammer="true"
-          c:country-ref="country"
-          c:contacts-ref="contacts"/>
+          c:country-ref="mutableCountry"
+          c:contacts-ref="contacts"
+          c:broke="false"/>
 
     <util:list id="contacts" value-type="java.lang.String">
         <value>asd@asd.ru</value>

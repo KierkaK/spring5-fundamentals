@@ -1,11 +1,14 @@
-package lab.aop.model;
+package lab.model.simple;
 
 import lab.aop.AopLog;
+import lab.aop.CustomerBrokenException;
+import lab.model.Bar;
+import lab.model.Person;
 
 public class ApuBar implements Bar {
 
     @Override
-	public Squishee sellSquishee(Customer customer)  {
+	public Squishee sellSquishee(Person customer)  {
         if (customer.isBroke())
             throw new CustomerBrokenException();
 

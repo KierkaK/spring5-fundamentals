@@ -1,21 +1,22 @@
 package lab.aop;
 
-
-import lab.aop.model.Squishee;
+import lab.model.simple.Squishee;
+import lab.model.Person;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import lab.aop.model.Customer;
 
 @Aspect
 public class Politeness {
 
     @Before("execution(* sellSquishee(..))")
     public void sayHello(JoinPoint joinPoint) {
-        AopLog.appendf("Hello %s. How are you doing? \n", ((Customer) joinPoint.getArgs()[0]).getName());
+        AopLog.appendf("Hello %s. How are you doing? \n", ((Person) joinPoint.getArgs()[0]).getName());
     }
 
-    @AfterReturning(pointcut = "execution(* sellSquishee(..))", returning = "retVal", argNames = "retVal")
+    @AfterReturning(pointcut = "execution(* sellSquishee(..))",
+            returning = "retVal",
+            argNames = "retVal")
     public void askOpinion(Object retVal) {
         AopLog.appendf("Is %s Good Enough? \n", ((Squishee) retVal).getName());
     }
