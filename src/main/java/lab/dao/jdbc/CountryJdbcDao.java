@@ -15,8 +15,6 @@ public interface CountryJdbcDao extends CountryDao, InitializingBean {
     String GET_COUNTRY_BY_NAME_SQL = "SELECT id, name, code_name FROM country WHERE name = ?";
     String GET_COUNTRY_BY_CODE_NAME_SQL = "SELECT id, name, code_name FROM country WHERE code_name = ?";
     String UPDATE_COUNTRY_NAME_SQL = "UPDATE country SET name=? WHERE code_name=?";
-    String CREATE_COUNTRY_TABLE_SQL = "CREATE TABLE country(id IDENTITY, name VARCHAR (255), code_name VARCHAR (255))";
-    String DROP_COUNTRY_TABLE_SQL = "DROP TABLE country";
 
     String[][] COUNTRY_INIT_DATA = {
             {"Australia", "AU"}, //0

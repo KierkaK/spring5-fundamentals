@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 //@NoArgsConstructor
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-public class SimplePerson implements MutablePerson {
+public class SimplePerson implements MutablePerson<SimplePerson> {
 //    @Id
 //    @Column
     private int id;

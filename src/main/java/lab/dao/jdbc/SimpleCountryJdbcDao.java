@@ -17,20 +17,18 @@ import java.util.List;
 public class SimpleCountryJdbcDao extends NamedParameterJdbcDaoSupport implements CountryJdbcDao {
 
     @Override
-    public void save(MutableCountry mutableCountry) {
-
+    public void save(MutableCountry country) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-
         getJdbcTemplate().update(
                 connection -> {
-                    PreparedStatement ps = connection.prepareStatement(LOAD_COUNTRIES_SQL, Statement.RETURN_GENERATED_KEYS);
-                    ps.setString(1, mutableCountry.getName());
-                    ps.setString(2, mutableCountry.getCodeName());
+                    PreparedStatement ps = connection.prepareStatement(
+                            LOAD_COUNTRIES_SQL, Statement.RETURN_GENERATED_KEYS);
+                    ps.setString(1, country.getName());
+                    ps.setString(2, country.getCodeName());
                     return ps;
                 },
                 keyHolder);
-
-        mutableCountry.setId(keyHolder.getKey().intValue());
+        country.setId(keyHolder.getKey().intValue());
     }
 
     @Override

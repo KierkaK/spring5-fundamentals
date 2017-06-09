@@ -17,7 +17,7 @@ import javax.persistence.*;
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 @Entity
 @Table(name = "country")
-public class SimpleCountry implements MutableCountry {
+public class SimpleCountry implements MutableCountry<SimpleCountry> {
     @Id
     @GeneratedValue
     private int id;

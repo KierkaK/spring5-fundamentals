@@ -2,21 +2,21 @@ package lab.model;
 
 import java.util.List;
 
-public interface MutablePerson extends Person {
+public interface MutablePerson<T extends MutablePerson> extends Person {
 
-    Person setId(int id);
+    T setId(int id);
 
-    Person setName(String name);
+    T setName(String name);
 
-    Person setCountry(Country country);
+    T setCountry(Country country);
 
-    Person setAge(int age);
+    T setAge(int age);
 
-    Person setHeight(float height);
+    T setHeight(float height);
 
-    Person setProgrammer(boolean isProgrammer);
+    T setProgrammer(boolean isProgrammer);
 
-    Person setContacts(List<String> contacts);
+    T setContacts(List<String> contacts);
 
-    Person setBroke(boolean broke);
+    T setBroke(boolean broke);
 }

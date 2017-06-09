@@ -1,10 +1,10 @@
 package lab.model;
 
-public interface MutableCountry extends Country {
+public interface MutableCountry<T extends MutableCountry> extends Country {
 
-    MutableCountry setId(int id);
+    T setId(int id);
 
-    MutableCountry setName(String name);
+    T setName(String name);
 
-    MutableCountry setCodeName(String codeName);
+    T setCodeName(String codeName);
 }
